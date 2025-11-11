@@ -120,3 +120,63 @@
   color: var(--color-white);
   transform: scale(1.02);
 }
+
+
+.qrPreview {
+  text-align: center;
+  margin-top: 1.5rem;
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.qrPreview canvas {
+  border-radius: 10px;
+  transition: all var(--transition);
+}
+
+.customize {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--color-secondary);
+  box-shadow: var(--shadow-soft);
+}
+
+.customize h4 {
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.customGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.customGroup label {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.customGroup input[type="color"] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  height: 32px;
+  width: 60px;
+}
+
+.customGroup select {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-gray);
+  padding: 6px;
+  background: var(--color-white);
+}
+
+.customGroup input[type="checkbox"] {
+  transform: scale(1.2);
+}

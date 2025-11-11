@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import styles from "./generador.module.css";
 
+import { FaHeart, FaWifi, FaUser, FaLink, FaStar } from "react-icons/fa";
+
 export default function Generator() {
   const [selectedType, setSelectedType] = useState("");
   const [formData, setFormData] = useState({});
@@ -193,52 +195,147 @@ export default function Generator() {
     }
   };
 
+  const [qrColor, setQrColor] = useState("#000000");
+  const [qrShape, setQrShape] = useState("squares");
+  const [qrBorder, setQrBorder] = useState(false);
+  const [qrIcon, setQrIcon] = useState("");
+
+
   return (
-    <div className={styles.generator}>
-      {/* LEFT SECTION */}
-      <div className={styles.leftSection}>
-        <h2>Create your QR Code</h2>
-        <div className={styles.formArea}>{renderForm()}</div>
-        {selectedType && (
-          <button className={styles.generateBtn} onClick={handleGenerate}>
-            Generate QR
-          </button>
-        )}
-        {qrValue && (
-          <div className={styles.qrPreview}>
-            <h4>Preview:</h4>
-            <QRCodeCanvas value={qrValue} size={180} />
+  <div className={styles.generator}>
+    {/* LEFT SECTION */}
+    <div className={styles.leftSection}>
+      <h2>Create your QR Code</h2>
+
+      {/* FORM AREA */}
+      <div className={styles.formArea}>{renderForm()}</div>
+
+      {/* GENERATE BUTTON */}
+      {selectedType && (
+        <button className={styles.generateBtn} onClick={handleGenerate}>
+          Generate QR
+        </button>
+      )}
+
+      {/* STYLE OPTIONS */}
+     
+
+      {/* QR PREVIEW */}
+      {qrValue && (
+        <div
+          className={`${styles.qrPreview} ${
+            qrBorder ? styles.qrWithBorder : ""
+          }`}
+        >
+          <h4>Preview:</h4>
+          <div className={styles.qrWrapper}>
+            <QRCodeCanvas
+              value={qrValue}
+              size={180}
+              fgColor={qrColor}
+              style={{
+                borderRadius: qrShape === "rounded" ? "20%" : "0",
+              }}
+            />
+            {qrIcon && (
+              <div className={styles.iconCenter}>
+                {qrIcon === "FaHeart" && <FaHeart color={qrColor} size={32} />}
+                {qrIcon === "FaWifi" && <FaWifi color={qrColor} size={32} />}
+                {qrIcon === "FaUser" && <FaUser color={qrColor} size={32} />}
+                {qrIcon === "FaLink" && <FaLink color={qrColor} size={32} />}
+                {qrIcon === "FaStar" && <FaStar color={qrColor} size={32} />}
+              </div>
+            )}
           </div>
-        )}
+        </div>
+      )}
+    </div>
+
+    {/* RIGHT SECTION */}
+    <div className={styles.rightSection}>
+      <div className={styles.optionList}>
+        <h3>QR Type</h3>
+        <ul>
+          {[
+            "Text",
+            "Link / URL",
+            "Phone Number",
+            "Email",
+            "SMS",
+            "vCard",
+            "Wi-Fi",
+            "Event",
+            "Social Media",
+          ].map((type) => (
+            <li
+              key={type}
+              className={selectedType === type ? styles.active : ""}
+              onClick={() => setSelectedType(type)}
+            >
+              {type}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      {/* RIGHT SECTION */}
-      <div className={styles.rightSection}>
-        <div className={styles.optionList}>
-          <h3>QR Type</h3>
-          <ul>
-            {[
-              "Text",
-              "Link / URL",
-              "Phone Number",
-              "Email",
-              "SMS",
-              "vCard",
-              "Wi-Fi",
-              "Event",
-              "Social Media",
-            ].map((type) => (
-              <li
-                key={type}
-                className={selectedType === type ? styles.active : ""}
-                onClick={() => setSelectedType(type)}
-              >
-                {type}
-              </li>
-            ))}
-          </ul>
+       {qrValue && (
+        <div className={styles.styleOptions}>
+          <h4>Customize Style</h4>
+
+          {/* Color Picker */}
+          <div className={styles.optionGroup}>
+            <label>QR Color:</label>
+            <input
+              type="color"
+              value={qrColor}
+              onChange={(e) => setQrColor(e.target.value)}
+            />
+          </div>
+
+          {/* Shape Selector */}
+          <div className={styles.optionGroup}>
+            <label>Shape:</label>
+            <select
+              value={qrShape}
+              onChange={(e) => setQrShape(e.target.value)}
+            >
+              <option value="dots">Dots</option>
+              <option value="squares">Squares</option>
+              <option value="rounded">Rounded</option>
+            </select>
+          </div>
+
+          {/* Border Toggle */}
+          <div className={styles.optionGroup}>
+            <label>
+              <input
+                type="checkbox"
+                checked={qrBorder}
+                onChange={() => setQrBorder(!qrBorder)}
+              />
+              Add Border
+            </label>
+          </div>
+
+          {/* Icon Selector */}
+          <div className={styles.optionGroup}>
+            <label>Center Icon:</label>
+            <select
+              value={qrIcon}
+              onChange={(e) => setQrIcon(e.target.value)}
+            >
+              <option value="">None</option>
+              <option value="FaHeart">❤️ Heart</option>
+              <option value="FaWifi">📶 Wi-Fi</option>
+              <option value="FaUser">👤 User</option>
+              <option value="FaLink">🔗 Link</option>
+              <option value="FaStar">⭐ Star</option>
+            </select>
+          </div>
         </div>
-      </div>
+      )}
     </div>
-  );
+  </div>
+);
+
 }
