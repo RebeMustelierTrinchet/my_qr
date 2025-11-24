@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./home.module.css";
 import { useNavigate } from "react-router-dom";
+import I1 from './../../images/home_image.png'
 
 export default function Home() {
   const navigate = useNavigate();
@@ -11,8 +12,8 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-        <div className={styles.imageSection}>
-        {/* Placeholder for image */}
+      <div className={styles.imageSection}>
+        <img src={I1} alt="qr image for home" className={styles.image} />
       </div>
       <div className={styles.textSection}>
         <h1>Create your own QR code</h1>

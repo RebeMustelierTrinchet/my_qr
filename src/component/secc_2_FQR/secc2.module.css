@@ -1,0 +1,118 @@
+:root {}
+
+.faqContainer {
+  padding: 2.5rem;
+  max-width: 750px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border: 2px solid var(--color-secondary);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);} 
+  to { opacity: 1; transform: translateY(0);} 
+}
+
+.title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.icon{
+  margin-left: auto;
+}
+
+.faqItem {
+  background: var(--color-white);
+  border-radius: 18px;
+  margin-bottom: .6rem;
+  overflow: hidden;
+  border: 2px solid var(--color-gray);
+  transition: var(--transition);
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 400px;
+  padding-top: 3px;
+   padding-bottom: 3px;
+ 
+  
+}
+
+.question{
+ display: flex;
+ width: 100%;
+}
+
+.faqItem:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.faqQuestion {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1.2rem 1.4rem;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.faqQuestion:hover {
+  color: var(--color-primary);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.faqAnswerWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: var(--color-bg);
+}
+
+.faqAnswerWrapper.open {
+  max-height: 500px;
+}
+
+.faqAnswer {
+  padding: 0 1.4rem 1.4rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  animation: fadeAnswer 0.4s ease;
+}
+
+@keyframes fadeAnswer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.faqList{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

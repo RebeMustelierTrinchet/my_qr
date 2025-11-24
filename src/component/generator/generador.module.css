@@ -1,0 +1,221 @@
+@import "../../var/colors.module.css";
+
+.generator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: var(--color-bg);
+  min-height: 80vh;
+  padding: 2rem;
+  gap: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* LEFT SECTION */
+.leftSection {
+  flex: 1;
+  min-width: 320px;
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.leftSection h2 {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+}
+
+.formArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.formArea input,
+.formArea textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--color-gray);
+  border-radius: var(--radius);
+  outline: none;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.formArea input:focus,
+.formArea textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 4px var(--color-secondary);
+}
+
+.generateBtn {
+  margin-top: 1rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 0.9rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  width: fit-content;
+}
+
+.generateBtn:hover {
+  background-color: var(--color-primary);
+  transform: scale(1.03);
+}
+
+/* RIGHT SECTION */
+.rightSection {
+  flex: 0.6;
+  min-width: 260px;
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.optionList h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.optionList{
+  border: 3px solid var(--color-primary);
+  padding: 20px;
+  border-radius: 30px;
+}
+.optionList ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  gap: 0.6rem;
+
+}
+
+.optionList li {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  
+}
+
+.optionList li:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  transform: scale(1.02);
+}
+
+
+.qrPreview {
+  text-align: center;
+  width: auto;
+  margin-top: 1.5rem;
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.qrPreview canvas {
+  border-radius: 10px;
+  transition: all var(--transition);
+}
+
+.customize {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--color-secondary);
+  box-shadow: var(--shadow-soft);
+}
+
+.customize h4 {
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.customGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.customGroup label {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.customGroup input[type="color"] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  height: 32px;
+  width: 60px;
+}
+
+.customGroup select {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-gray);
+  padding: 6px;
+  background: var(--color-white);
+}
+
+.customGroup input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+
+.qrPreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+.qrWithBorder {
+  border-width: 5px;
+  border-style: solid;
+}
+
+
+.qrWrapper{
+  padding: 5px;
+  border-radius: 15px;
+  position: relative;
+  width: fit-content;
+}
+
+
+
+.iconCenter {
+  position: absolute;
+  top: 56%;
+  left: 29%;
+  /* transform: translate(-50%, -50%); */
+  pointer-events: none; /* para que no bloquee clics */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

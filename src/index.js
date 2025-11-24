@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from './component/layout/layout';
 import Home from './pages/home/home';
 import Generator from './pages/generator/generador';
+import Generator_Page from './pages/generator/generador';
 
 
 
@@ -18,7 +19,7 @@ root.render(
         <Layout>
           <Routes>
             <Route exact path="/" element={<Home/>} />
-            <Route exact path="/generator" element={<Generator/>} />
+            <Route exact path="/generator" element={<Generator_Page/>} />
           </Routes>
         </Layout>
       </Router>

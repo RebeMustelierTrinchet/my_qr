@@ -3,9 +3,9 @@
 .home {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center !important;
   flex-wrap: wrap;
-  min-height: 80vh;
+  min-height: 70vh;
   background-color: var(--color-bg);
   padding: 3rem 2rem;
   gap: 2rem;
@@ -51,9 +51,16 @@
 }
 
 .imageSection {
-  flex: 1;
+  /* flex: 1; */
   min-height: 250px;
   background-color: var(--color-secondary);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+  padding: 15px;
+ 
+}
+
+.image{
+  width: 300px;
+   border-radius: var(--radius);
 }
