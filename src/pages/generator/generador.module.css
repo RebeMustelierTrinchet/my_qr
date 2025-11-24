@@ -124,6 +124,7 @@
 
 .qrPreview {
   text-align: center;
+  width: auto;
   margin-top: 1.5rem;
   background: var(--color-white);
   box-shadow: var(--shadow-soft);
@@ -179,4 +180,42 @@
 
 .customGroup input[type="checkbox"] {
   transform: scale(1.2);
+}
+
+
+.qrPreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+.qrWithBorder {
+  border-width: 5px;
+  border-style: solid;
+}
+
+
+.qrWrapper{
+  padding: 5px;
+  border-radius: 15px;
+  position: relative;
+  width: fit-content;
+}
+
+
+
+.iconCenter {
+  position: absolute;
+  top: 56%;
+  left: 29%;
+  /* transform: translate(-50%, -50%); */
+  pointer-events: none; /* para que no bloquee clics */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
