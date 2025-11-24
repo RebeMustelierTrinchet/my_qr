@@ -51,6 +51,12 @@ export default function Generator() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  //     if (e.target.type === "file") {
+  //   // Guardar el primer archivo seleccionado
+  //   // setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+  // } else {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // }
   };
 
   const handleGenerate = () => {
@@ -97,6 +103,23 @@ export default function Generator() {
       case "Social Media":
         data = formData.social || "";
         break;
+      
+    // case "PDF":
+    //   if (formData.pdfFile) {
+    //     // Si quieres usar un PDF, la forma más sencilla es crear un URL blob
+    //     data = URL.createObjectURL(formData.pdfFile);
+    //   }
+    //   break;
+
+    case "Map":
+      if (formData.latitude && formData.longitude) {
+        data = "https://www.google.com/maps?q=${formData.latitude},${formData.longitude}";
+      }break;
+
+    // case "Image":
+    //   data = formData.imageUrl || "";
+    //   break;
+    
       default:
         data = "";
     }
@@ -235,6 +258,52 @@ export default function Generator() {
             />
           </>
         );
+
+      // case "PDF":
+      // return (
+      //   <>
+      //     <label>Upload PDF file:</label>
+      //     <input
+      //       type="file"
+      //       name="pdfFile"
+      //       accept=".pdf"
+      //       onChange={handleChange}
+      //     />
+      //   </>
+      // );
+
+    case "Map":
+      return (
+        <>
+          <label>Enter location coordinates:</label>
+          <input
+            type="text"
+            name="latitude"
+            onChange={handleChange}
+            placeholder="Latitude (e.g., 40.7128)"
+          />
+          <input
+            type="text"
+            name="longitude"
+            onChange={handleChange}
+            placeholder="Longitude (e.g., -74.0060)"
+          />
+        </>
+      );
+
+    // case "Image":
+    //   return (
+    //     <>
+    //       <label>Enter image URL:</label>
+    //       <input
+    //         type="url"
+    //         name="imageUrl"
+    //         onChange={handleChange}
+    //         placeholder="https://example.com/image.png"
+    //       />
+    //     </>
+    //   );
+
       default:
         return <p>Select a type from the right to start.</p>;
     }
@@ -297,6 +366,9 @@ export default function Generator() {
               "Wi-Fi",
               "Event",
               "Social Media",
+              // "PDF",
+              "Map"
+              // "Image"
             ].map((type) => (
               <li
                 key={type}
@@ -362,4 +434,4 @@ export default function Generator() {
       </div>
     </div>
   );
-}
+  }
