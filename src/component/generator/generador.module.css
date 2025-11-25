@@ -221,6 +221,70 @@
 }
 
 
+.styleOptions {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  max-width: 400px;
+  margin: 1rem auto;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.styleOptions h4 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.optionGroup label {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.optionGroup input[type="color"] {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--color-gray);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.optionGroup input[type="color"]:hover {
+  border-color: var(--color-accent);
+}
+
+.optionGroup select {
+  padding: 0.5rem 0.8rem;
+  border: 2px solid var(--color-gray);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.optionGroup select:hover {
+  border-color: var(--color-primary);
+}
+
+.optionGroup select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(249, 168, 212, 0.3); /* rosa pastel suave */
+}
+
+
 /* 📱 MOBILE VIEW */
 @media (max-width: 768px) {
   .generator {
@@ -301,3 +365,6 @@
     width: 100%;
   }
 }
+
+
+
