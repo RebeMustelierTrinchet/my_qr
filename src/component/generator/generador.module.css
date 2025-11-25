@@ -219,3 +219,85 @@
   align-items: center;
   justify-content: center;
 }
+
+
+/* 📱 MOBILE VIEW */
+@media (max-width: 768px) {
+  .generator {
+    flex-direction: column;
+    padding: 0;
+    /* gap: 1.5rem; */
+  }
+
+  /* LEFT SECTION */
+  .leftSection {
+    /* padding: 1.4rem; */
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .leftSection h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .formArea input,
+  .formArea textarea {
+    font-size: 0.9rem;
+    width: 92%;
+    /* padding: 0.65rem; */
+  }
+
+  .generateBtn {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 14px;
+    font-size: 1rem;
+  }
+
+  /* RIGHT SECTION */
+  .rightSection {
+    padding: 1.3rem;
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+  }
+
+
+  /* QR PREVIEW */
+  .qrPreview {
+    padding: 1.2rem;
+    border-radius: 18px;
+  }
+
+  .qrWrapper {
+    margin-top: 10px;
+  }
+
+  /* Icono centrado (imagen adentro del QR) */
+  .iconCenter {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;   /* ajustable */
+    height: 40px;  /* ajustable */
+  }
+
+  /* Customize Section */
+  .customize {
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .customGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .customGroup select,
+  .customGroup input[type="color"] {
+    width: 100%;
+  }
+}
